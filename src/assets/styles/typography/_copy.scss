@@ -1,0 +1,27 @@
+p {
+	margin: 1em 0;
+	font-size: rem(16px);
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+big {
+	font-size: 125%;
+}
+
+small {
+	font-size: em( 16px, 20px );
+}
+
+strong {
+	font-weight: 400;
+}

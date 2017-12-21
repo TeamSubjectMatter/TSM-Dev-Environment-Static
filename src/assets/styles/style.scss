@@ -1,0 +1,80 @@
+/**
+ *
+ * Styles
+ *
+ * This is the root file for all styles, so every scss partial should be
+ * imported here. Import statements should be grouped functionally.
+ */
+
+// Variables
+@import 'variables/_breakpoints.scss';
+@import 'variables/_colors.scss';
+@import 'variables/_typography.scss';
+
+/**
+ * Functions
+ */
+@function vw( $target, $context ) {
+
+	@return ( $target / $context * 100vw );
+}
+
+@function rem( $target ) {
+
+	@return( $target / 20px * 1rem );
+}
+
+@function em( $target, $context ) {
+
+	@return ( $target / $context * 1em );
+}
+
+@function max-font-viewport( $target, $context, $font-size ) {
+
+	@return $font-size * $context / $target;
+}
+
+/**
+ * Mixins
+ */
+@mixin aspect-ratio( $ratio ) {
+	position: relative;
+
+	&::before {
+		content: '';
+		display: block;
+		padding-top: $ratio;
+		width: 100%;
+	}
+
+	> .aspect-ratio-content {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+// Elements
+@import 'elements/_elements.scss';
+
+// Typography
+@import 'typography/_typography.scss';
+
+// Layout
+@import 'layout/_layout.scss';
+
+// Modules
+@import 'modules/_modules.scss';
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}

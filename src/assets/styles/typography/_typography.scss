@@ -1,0 +1,29 @@
+/** Set Base Font Sizes */
+
+html {
+	font-size: percentage( $font__base-size / 16px );
+}
+
+body {
+	font-size: rem( 16px );
+	line-height: $font__line-height-body;
+	font-weight: 300;
+
+	@media #{$tablet-up} {
+		font-size: rem( 16px );
+	}
+}
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: $color__copy;
+	font-family: $font__main;
+	line-height: $font__line-height-body;
+}
+
+@import 'headings';
+@import 'copy';

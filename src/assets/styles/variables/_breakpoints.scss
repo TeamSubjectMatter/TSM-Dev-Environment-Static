@@ -1,0 +1,43 @@
+// Breakpoints
+// Base unit: 16px (1em)
+//
+// These breakpoints are intended to be mobile-first and based on common device
+// categorizations. There are three ways to target a breakpoint: style only for
+// a device size, style up to a certain device size and style from a certain
+// device size and up. The later of the three should be the most used, the first
+// two are just for occassional convenience and to avoid overwritting a lot of
+// style declarations.
+//
+// You use these by interpolating the scss variable into a media query:
+//
+// @media #{$laptop-up} {
+//   .some-class {
+//     some styles
+//   }
+// }
+//
+
+$phone: 37.438em; // 599px
+$phablet: 37.5em; //600px
+$tablet: 56.25em; // 900px
+$laptop: 75em; // 1200px
+$desktop: 90em; // 1440px
+$large-desktop: 100em; // 1600px
+
+$landscape: '(orientation: landscape)';
+
+$phone-only: '(max-width: #{$phone})';
+$phablet-only: '(min-width: #{$phablet}) and (max-width: #{$tablet})';
+$tablet-only: '(min-width: #{$tablet}) and (max-width: #{$laptop})';
+$laptop-only: '(min-width: #{$laptop}) and (max-width: #{$desktop})';
+
+$up-to-phablet: '(max-width: #{$phablet})';
+$up-to-tablet: '(max-width: #{$tablet})';
+$up-to-laptop: '(max-width: #{$laptop})';
+$up-to-desktop: '(max-width: #{$desktop})';
+$up-to-large-desktop: '(max-width: #{$large-desktop})';
+
+$phablet-up: '(min-width: #{$phablet})';
+$tablet-up: '(min-width: #{$tablet})';
+$laptop-up: '(min-width: #{$laptop})';
+$desktop-up: '(min-width: #{$desktop})';
