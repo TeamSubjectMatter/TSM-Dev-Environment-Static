@@ -10,6 +10,8 @@
   "author": "Lauren",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
     "asset-builder": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
@@ -21,7 +23,7 @@
     "globby": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
-    "gulp-babel": "*",
+    "gulp-babel": "^8.0.0",
     "gulp-changed": "*",
     "gulp-clean-css": "*",
     "gulp-concat": "*",
