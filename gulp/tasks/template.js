@@ -9,6 +9,24 @@ import tidy from 'gulp-htmltidy';
 import template from 'gulp-template';
 import layout from 'gulp-layout';
 
+
+const partials = fs.readdirSync('./src/partials');
+const obj = {};
+
+var traverse = function(folder, foldername) {
+  folder.forEach(subFile => {
+    if(subFile.indexOf('.') == -1){
+      var subFolder = fs.readdirSync(`./src/partials/${foldername}${subFile}`);
+      var newfoldername = foldername + folder[folder.indexOf(subFile)].toString() + '/';
+      traverse(subFolder,newfoldername);
+    }else {
+      obj[subFile.substring(0, subFile.indexOf('.'))] = fs.readFileSync(
+        `./src/partials/${foldername}${subFile}`,
+      );
+    }
+  });
+}
+
 gulp.task('template', () => {
   return gulp
     .src('./src/*.html')
@@ -21,13 +39,7 @@ gulp.task('template', () => {
     )
     .pipe(
       data(() => {
-        const partials = fs.readdirSync('./src/partials');
-        const obj = {};
-        partials.forEach(partial => {
-          obj[partial.substring(0, partial.indexOf('.'))] = fs.readFileSync(
-            `./src/partials/${partial}`,
-          );
-        });
+        traverse(partials,'');
         return obj;
       }),
     )
